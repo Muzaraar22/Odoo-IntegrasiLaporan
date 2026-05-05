@@ -1,0 +1,6 @@
+ID Struk,Waktu Transaksi,Menu,Jumlah,Harga Satuan,Info Kasir
+TRX-1001,2026-05-01 08:15:00,Kopi Susu Gula Aren,2,20000,Kasir Depan
+TRX-1001,2026-05-01 08:15:00,Roti Bakar Coklat,1,15000,Kasir Depan
+TRX-1002,2026-05-01 09:30:00,Americano Panas,1,18000,Kasir Depan
+TRX-1001,2026-05-01 08:15:00,Kopi Susu Gula Aren,2,20000,Kasir Depan
+TRX-1003,2026-05-01 10:00:00,Kopi Susu Gula Aren,3,20000,Kasir Depan

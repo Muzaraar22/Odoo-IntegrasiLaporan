@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_import_csv_wizard_form" model="ir.ui.view">
+            <field name="name">import.csv.wizard.form</field>
+            <field name="model">import.csv.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Import Laporan CSV">
+                    <group>
+                        <field name="template_id"/>
+                        <field name="csv_file" filename="filename"/>
+                        <field name="filename" invisible="1"/>
+                    </group>
+                    <footer>
+                        <!-- pemicu fungsi action_import di Python -->
+                        <button name="action_import" string="Proses Import" type="object" class="btn-primary" icon="fa-upload"/>
+                        <button string="Batal" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action memanggil pop-up (target="new") -->
+        <record id="action_import_csv_wizard" model="ir.actions.act_window">
+            <field name="name">Import Laporan CSV</field>
+            <field name="res_model">import.csv.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

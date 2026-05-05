@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  web:
+    image: odoo:18.0-20260421 # gunakan versi spesifik agar lokal dan server identik
+    depends_on:
+      - db
+    ports:
+      - "8069:8069" # LOKAL localhost:8069
+      # - "127.0.0.1:8069:8069" # SERVER: Hapus tanda '#' di awal baris ini, dan tambahkan '#' di baris atasnya saat deploy!
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./addons:/mnt/extra-addons
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=KedaiWargaSI2026!
+    restart: unless-stopped
+
+  db:
+    image: postgres:16.2
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=KedaiWargaSI2026!
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data/pgdata
+    restart: unless-stopped
+
+volumes:
+  odoo-web-data:
+  odoo-db-data:

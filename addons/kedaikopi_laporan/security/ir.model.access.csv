@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_it_log,it.read.log,model_pos_integration_log,kedaikopi_laporan.group_kedaikopi_it,1,0,0,0
+access_opras_template,opras.template,model_pos_integration_template,kedaikopi_laporan.group_kedaikopi_opras,1,1,1,1
+access_opras_template_line,opras.template.line,model_pos_integration_template_line,kedaikopi_laporan.group_kedaikopi_opras,1,1,1,1
+access_opras_penjualan,opras.penjualan,model_penjualan_gabungan,kedaikopi_laporan.group_kedaikopi_opras,1,1,1,1
+access_opras_wizard,opras.wizard,model_import_csv_wizard,kedaikopi_laporan.group_kedaikopi_opras,1,1,1,1
+access_opras_log,opras.read.log,model_pos_integration_log,kedaikopi_laporan.group_kedaikopi_opras,1,0,0,0
+access_ceo_penjualan,ceo.read.penjualan,model_penjualan_gabungan,kedaikopi_laporan.group_kedaikopi_ceo,1,0,0,0

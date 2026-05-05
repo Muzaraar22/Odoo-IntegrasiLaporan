@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- list (Daftar Transaksi) -->
+        <record id="view_penjualan_gabungan_tree" model="ir.ui.view">
+            <field name="name">penjualan.gabungan.list</field>
+            <field name="model">penjualan.gabungan</field>
+            <field name="arch" type="xml">
+                <list string="Data Penjualan" default_order="transaction_date desc">
+                    <field name="transaction_date"/>
+                    <field name="transaction_id"/>
+                    <field name="product_name"/>
+                    <field name="quantity"/>
+                    <field name="unit_price"/>
+                    <field name="total_price" sum="Total Keseluruhan"/>
+                    <field name="source_pos"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- form (jika data di-klik) -->
+        <record id="view_penjualan_gabungan_form" model="ir.ui.view">
+            <field name="name">penjualan.gabungan.form</field>
+            <field name="model">penjualan.gabungan</field>
+            <field name="arch" type="xml">
+                <form string="Detail Penjualan">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="transaction_id"/>
+                                <field name="transaction_date"/>
+                                <field name="source_pos"/>
+                            </group>
+                            <group>
+                                <field name="product_name"/>
+                                <field name="quantity"/>
+                                <field name="unit_price"/>
+                                <field name="total_price"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- pivot table -->
+        <record id="view_penjualan_gabungan_pivot" model="ir.ui.view">
+            <field name="name">penjualan.gabungan.pivot</field>
+            <field name="model">penjualan.gabungan</field>
+            <field name="arch" type="xml">
+                <!-- tampilan default saat pertama dibuka:
+                     Baris (Row) = Waktu (Per Bulan)
+                     Kolom (Column) = Nama Produk
+                     Nilai (Measure) = Total Harga -->
+                <pivot string="Analisis Penjualan">
+                    <field name="transaction_date" type="row" interval="month"/>
+                    <field name="product_name" type="col"/>
+                    <field name="total_price" type="measure"/>
+                    <field name="quantity" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!--  grafik (Bar Chart / Pie)    -->
+        <record id="view_penjualan_gabungan_graph" model="ir.ui.view">
+            <field name="name">penjualan.gabungan.graph</field>
+            <field name="model">penjualan.gabungan</field>
+            <field name="arch" type="xml">
+                <!-- Defaultnya grafik batang (bar) -->
+                <graph string="Grafik Penjualan" type="bar">
+                    <field name="product_name" type="row"/>
+                    <field name="total_price" type="measure"/>
+                </graph>
+            </field>
+        </record>
+    </data>
+</odoo>

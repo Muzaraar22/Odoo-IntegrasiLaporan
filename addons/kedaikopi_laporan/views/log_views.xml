@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tampilan List View untuk Logging -->
+        <record id="view_pos_integration_log_tree" model="ir.ui.view">
+            <field name="name">pos.integration.log.list</field>
+            <field name="model">pos.integration.log</field>
+            <field name="arch" type="xml">
+                <!-- create="false" edit="false" delete="false" agar log tidak bisa dimanipulasi -->
+                <list string="Riwayat Import" create="false" edit="false" delete="false">
+                    <field name="import_date"/>
+                    <field name="user_id"/>
+                    <field name="template_id"/>
+                    <field name="filename"/>
+                    <field name="success_count"/>
+                    <field name="skipped_count"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Action untuk memanggil tampilan List -->
+        <record id="action_pos_integration_log" model="ir.actions.act_window">
+            <field name="name">Sistem Logging</field>
+            <field name="res_model">pos.integration.log</field>
+            <field name="view_mode">list</field>
+        </record>
+    </data>
+</odoo>
