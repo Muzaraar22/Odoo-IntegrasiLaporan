@@ -14,6 +14,9 @@ class PenjualanGabungan(models.Model):
     total_price = fields.Float(string='Total Harga', compute='_compute_total_price', store=True)
     source_pos = fields.Char(string='Sumber PoS', help="Diambil otomatis dari nama template, misal: Majoo")
 
+    # ngikat log ke data. log dihapus, data yang terkait ikut terhapus
+    log_id = fields.Many2one('pos.integration.log', string='Referensi Log Import', ondelete='cascade')
+
     # mencegah duplikasi
     # Kombinasi ID Struk dan Nama Produk tidak boleh dimasukkan dua kali
     _sql_constraints = [

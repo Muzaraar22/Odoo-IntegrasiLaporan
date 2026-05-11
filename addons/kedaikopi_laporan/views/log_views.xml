@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- Tampilan List View untuk Logging -->
         <record id="view_pos_integration_log_tree" model="ir.ui.view">
             <field name="name">pos.integration.log.list</field>
             <field name="model">pos.integration.log</field>
@@ -14,6 +13,9 @@
                     <field name="filename"/>
                     <field name="success_count"/>
                     <field name="skipped_count"/>
+                    <field name="state" widget="badge" decoration-success="state == 'done'" decoration-muted="state == 'undone'"/>
+                    
+                    <button name="action_undo_import" type="object" string="Batal Import" class="btn-sm btn-danger" icon="fa-undo" confirm="Anda yakin ingin membatalkan import ini? Semua data penjualan terkait akan langsung Dihapus dari database." invisible="state == 'undone'"/>
                 </list>
             </field>
         </record>
