@@ -8,7 +8,7 @@ class PenjualanGabungan(models.Model):
     transaction_date = fields.Datetime(string='Tanggal Transaksi', required=True)
     product_name = fields.Char(string='Nama Produk', required=True)
     quantity = fields.Float(string='Kuantitas (Qty)', required=True, default=1.0)
-    unit_price = fields.Float(string='Harga Satuan', required=True)
+    unit_price = fields.Float(string='Harga Satuan', required=True, group_operator='avg')
     
     # Total harga  dihitung otomatis oleh Odoo (Qty * Harga Satuan)
     total_price = fields.Float(string='Total Harga', compute='_compute_total_price', store=True)
@@ -20,8 +20,8 @@ class PenjualanGabungan(models.Model):
     # mencegah duplikasi
     # Kombinasi ID Struk dan Nama Produk tidak boleh dimasukkan dua kali
     _sql_constraints = [
-        ('unique_transaction_product', 
-         'unique(transaction_id, product_name)', 
+        ('unique_transaction_product_source', 
+         'unique(transaction_id, product_name, source_pos)', 
          'Data transaksi ini sudah pernah diunggah! Tidak boleh overlap.')
     ]
 

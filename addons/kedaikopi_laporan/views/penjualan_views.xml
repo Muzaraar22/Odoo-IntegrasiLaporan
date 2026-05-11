@@ -68,6 +68,7 @@
                 <!-- Defaultnya grafik batang (bar) -->
                 <graph string="Grafik Penjualan" type="bar">
                     <field name="product_name" type="row"/>
+                    <field name="quantity" type="measure" operator="avg"/>
                     <field name="total_price" type="measure"/>
                 </graph>
             </field>

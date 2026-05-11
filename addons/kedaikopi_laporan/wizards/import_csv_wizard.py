@@ -83,7 +83,7 @@ class ImportCsvWizard(models.TransientModel):
             if not trans_id or not product:
                 continue 
 
-            existing = PenjualanObj.search([('transaction_id', '=', trans_id), ('product_name', '=', product)])
+            existing = PenjualanObj.search([('transaction_id', '=', trans_id), ('product_name', '=', product), ('source_pos', '=', self.template_id.name)])
             if existing:
                 skipped_count += 1
                 continue 
