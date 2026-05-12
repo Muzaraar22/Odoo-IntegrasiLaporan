@@ -21,6 +21,7 @@
         'security/security_groups.xml',
         'security/ir.model.access.csv',
         'data/pos_system_data.xml',
+        'data/pos_auto_sync_cron.xml',
         'views/template_views.xml',
         'views/penjualan_views.xml',
         'views/pos_system_views.xml',

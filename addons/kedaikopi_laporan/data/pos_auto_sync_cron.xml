@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <data>
+        <record id="ir_cron_auto_sync_pos_systems" model="ir.cron">
+            <field name="name">Auto Sync PoS Middleware</field>
+            <field name="model_id" ref="model_pos_system"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_auto_sync_pos_systems()</field>
+            <field name="interval_number">5</field>
+            <field name="interval_type">minutes</field>
+            <field name="active">True</field>
+        </record>
+    </data>
+</odoo>
