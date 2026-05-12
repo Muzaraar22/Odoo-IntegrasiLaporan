@@ -1,15 +1,16 @@
 {
     'name': 'Integrasi Laporan PoS',
     'version': '18.0.1.0.0',
-    'summary': 'Sistem ETL untuk menggabungkan laporan CSV dari berbagai sumber PoS',
+    'summary': 'Sistem integrasi PoS terpusat untuk laporan CSV dan API',
     'description': """
         Modul Integrasi Laporan Kedai Kopi Warga.
         
         Fitur utama:
         - Pembuatan template dinamis untuk berbagai format CSV (Majoo, Moka, dll).\n
         - Import dan standarisasi data transaksi PoS.\n
-        - Pencegahan duplikasi data transaksi (overlap).
-        - Sistem log untuk pemantauan proses import.
+        - Penerimaan sinkronisasi JSON dari PoS Lantai Atas dan PoS Lantai Bawah.\n
+        - Pencegahan duplikasi data transaksi (overlap).\n
+        - Sistem log untuk pemantauan proses import dan API sync.
     """,
     'category': 'Sales',
     'author': 'Kelompok 4 - SI Kedai Kopi Warga',
@@ -19,8 +20,10 @@
         # File security dan views (XML) akan didaftarkan di sini nanti
         'security/security_groups.xml',
         'security/ir.model.access.csv',
+        'data/pos_system_data.xml',
         'views/template_views.xml',
         'views/penjualan_views.xml',
+        'views/pos_system_views.xml',
         'wizards/import_csv_wizard_views.xml',
         'views/log_views.xml',
         'views/menu_views.xml',

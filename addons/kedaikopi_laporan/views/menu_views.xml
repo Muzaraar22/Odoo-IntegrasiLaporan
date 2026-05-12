@@ -35,6 +35,13 @@
                   sequence="20"
                   groups="kedaikopi_laporan.group_kedaikopi_opras,kedaikopi_laporan.group_kedaikopi_it"/>
 
+        <menuitem id="menu_kedaikopi_pos_system" 
+                  name="Sistem PoS" 
+                  parent="menu_kedaikopi_konfigurasi" 
+                  action="action_pos_system" 
+                  sequence="5"
+                  groups="kedaikopi_laporan.group_kedaikopi_opras,kedaikopi_laporan.group_kedaikopi_it"/>
+
         <menuitem id="menu_kedaikopi_import" 
                   name="Import Laporan" 
                   parent="menu_kedaikopi_root" 

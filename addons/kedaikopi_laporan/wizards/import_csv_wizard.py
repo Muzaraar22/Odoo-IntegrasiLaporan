@@ -57,10 +57,12 @@ class ImportCsvWizard(models.TransientModel):
         # PERUBAHAN: Buat cangkang Log terlebih dahulu di awal
         # ========================================================
         log_record = self.env['pos.integration.log'].create({
+            'source_type': 'csv',
             'template_id': self.template_id.id,
             'filename': self.filename,
             'success_count': 0,
             'skipped_count': 0,
+            'failed_count': 0,
             'state': 'done'
         })
 
@@ -95,6 +97,7 @@ class ImportCsvWizard(models.TransientModel):
                 'quantity': qty,
                 'unit_price': price,
                 'source_pos': self.template_id.name,
+                'integration_source': 'csv',
                 'log_id': log_record.id # link ke ID log yang baru dibuat
             })
             imported_count += 1
