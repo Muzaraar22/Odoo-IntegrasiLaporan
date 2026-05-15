@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <data>
+        <record id="pos_lantai_atas" model="pos.system">
+            <field name="name">PoS Lantai Atas</field>
+            <field name="code">POS_LANTAI_ATAS</field>
+            <field name="floor">atas</field>
+            <field name="sync_endpoint_url">http://pos-lantai-atas:8071/transactions/today</field>
+            <field name="auto_sync_enabled">1</field>
+            <field name="sync_time">21:00</field>
+            <field name="api_token">token-atas-2026</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="pos_lantai_bawah" model="pos.system">
+            <field name="name">PoS Lantai Bawah</field>
+            <field name="code">POS_LANTAI_BAWAH</field>
+            <field name="floor">bawah</field>
+            <field name="sync_endpoint_url">http://pos-lantai-bawah:8072/transactions/today</field>
+            <field name="auto_sync_enabled">1</field>
+            <field name="sync_time">21:00</field>
+            <field name="api_token">token-bawah-2026</field>
+            <field name="active">1</field>
+        </record>
+    </data>
+</odoo>

@@ -29,6 +29,42 @@ services:
       - odoo-db-data:/var/lib/postgresql/data/pgdata
     restart: unless-stopped
 
+  pos-lantai-atas:
+    image: python:3.12-slim
+    working_dir: /app
+    command: ["python", "/app/pos_dummy_server.py"]
+    environment:
+      - POS_CODE=POS_LANTAI_ATAS
+      - POS_NAME=PoS Lantai Atas
+      - POS_TOKEN=token-atas-2026
+      - PORT=8071
+      - ODOO_SYNC_URL=http://web:8069/pos/api/v1/sync
+    volumes:
+      - ./dummy_pos:/app
+    ports:
+      - "8071:8071"
+    depends_on:
+      - web
+    restart: unless-stopped
+
+  pos-lantai-bawah:
+    image: python:3.12-slim
+    working_dir: /app
+    command: ["python", "/app/pos_dummy_server.py"]
+    environment:
+      - POS_CODE=POS_LANTAI_BAWAH
+      - POS_NAME=PoS Lantai Bawah
+      - POS_TOKEN=token-bawah-2026
+      - PORT=8072
+      - ODOO_SYNC_URL=http://web:8069/pos/api/v1/sync
+    volumes:
+      - ./dummy_pos:/app
+    ports:
+      - "8072:8072"
+    depends_on:
+      - web
+    restart: unless-stopped
+
 volumes:
   odoo-web-data:
   odoo-db-data:

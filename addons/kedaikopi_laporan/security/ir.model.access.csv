@@ -6,3 +6,12 @@ access_opras_penjualan,opras.penjualan,model_penjualan_gabungan,kedaikopi_lapora
 access_opras_wizard,opras.wizard,model_import_csv_wizard,kedaikopi_laporan.group_kedaikopi_opras,1,1,1,1
 access_opras_log,opras.read.log,model_pos_integration_log,kedaikopi_laporan.group_kedaikopi_opras,1,1,1,0
 access_ceo_penjualan,ceo.read.penjualan,model_penjualan_gabungan,kedaikopi_laporan.group_kedaikopi_ceo,1,0,0,0
+access_it_pos_system,it.read.pos_system,model_pos_system,kedaikopi_laporan.group_kedaikopi_it,1,1,1,0
+access_opras_pos_system,opras.pos_system,model_pos_system,kedaikopi_laporan.group_kedaikopi_opras,1,1,1,0
+access_ceo_pos_system,ceo.read.pos_system,model_pos_system,kedaikopi_laporan.group_kedaikopi_ceo,1,0,0,0
+access_sm_template,sm.template,model_pos_integration_template,kedaikopi_laporan.group_kedaikopi_store_manager,1,1,1,1
+access_sm_template_line,sm.template.line,model_pos_integration_template_line,kedaikopi_laporan.group_kedaikopi_store_manager,1,1,1,1
+access_sm_wizard,sm.wizard,model_import_csv_wizard,kedaikopi_laporan.group_kedaikopi_store_manager,1,1,1,1
+access_sm_log,sm.read.log,model_pos_integration_log,kedaikopi_laporan.group_kedaikopi_store_manager,1,1,1,0
+access_sm_pos_system,sm.pos_system,model_pos_system,kedaikopi_laporan.group_kedaikopi_store_manager,1,1,1,0
+access_sm_penjualan,sm.penjualan,model_penjualan_gabungan,kedaikopi_laporan.group_kedaikopi_store_manager,1,0,1,0

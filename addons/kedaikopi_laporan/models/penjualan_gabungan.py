@@ -13,6 +13,11 @@ class PenjualanGabungan(models.Model):
     # Total harga  dihitung otomatis oleh Odoo (Qty * Harga Satuan)
     total_price = fields.Float(string='Total Harga', compute='_compute_total_price', store=True)
     source_pos = fields.Char(string='Sumber PoS', help="Diambil otomatis dari nama template, misal: Majoo")
+    pos_system_id = fields.Many2one('pos.system', string='Sistem PoS')
+    integration_source = fields.Selection([
+        ('csv', 'CSV'),
+        ('api', 'API'),
+    ], string='Sumber Integrasi', default='csv')
 
     # ngikat log ke data. log dihapus, data yang terkait ikut terhapus
     log_id = fields.Many2one('pos.integration.log', string='Referensi Log Import', ondelete='cascade')
